@@ -9,22 +9,16 @@
 
 function smarty_function_pagination($params, &$smarty)
 {
-    if (!function_exists(setDefaultProperties)){
-        function setDefaultProperties($properties){
-            $default = array(
-                'prev_next' => 0,
-                'limit' => 5,
-                'current' => 1,
-                'edges' => 3,
-                'offset' => 3,
-                'resource_id' => 1
-            );
-            return array_merge($default, $properties);
-        }        
-    }
-
     $pagination = array();
-    $params = setDefaultProperties($params);
+    $default = array(
+        'prev_next' => 0,
+        'limit' => 5,
+        'current' => 1,
+        'edges' => 3,
+        'offset' => 3,
+        'resource_id' => 1
+    ); 
+    $params = array_merge($default, $params);
     $pages = array();
     $prev = array();
     $next = array();

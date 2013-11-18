@@ -1,4 +1,4 @@
 paging
 ======
 
-pagination plugin for smarty
+pagination plugin for modxSmarty
