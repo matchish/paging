@@ -28,8 +28,8 @@ function smarty_function_pagination($params, &$smarty)
     
     if ($total>1){
         
-        $l_edge = range(1, min($total, $params['edges']));
-        $r_edge = range(max(1, ($total - $params['edges'] + 1)), $total);
+        $l_edge = ($params['edges']) ? range(1, min($total, $params['edges'])) : array();
+        $r_edge = ($params['edges']) ? range(max(1, ($total - $params['edges'] + 1)), $total) : array();
         $middle = range(max(1, $params['current'] - $params['offset']), min($total, $params['current'] + $params['offset']));
         $pages = array_merge($l_edge, $middle, $r_edge);
         $pages = array_unique($pages);     
